@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{msg}}</h1>
+    <button class="yes" @click="callYes">Yes</button>
+    <button class="no" @click="callNo">No</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "YesNoComponent",
+  props: {
+    callMe: {
+      type: Function,
+    },
+  },
+  data: function () {
+    return {
+      msg: "Hello, I am gonna become bigger",
+    };
+  },
+  methods: {
+    callYes() {
+      this.msg = this.msg.toUpperCase();
+      return this.msg;
+    },
+    callNo() {
+      this.msg = this.msg.toLowerCase();
+      return this.msg;
+    },
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
