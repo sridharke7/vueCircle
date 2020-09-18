@@ -11,9 +11,8 @@ describe('Testing App component', () => {
 })
 
 function increment() {
-    if (flavour !== 'octopus') {
-      callback(flavour);
-    }
+    let count = 0
+    count += 1;
   }
 
 describe('Testing native dom events', () => {
@@ -21,12 +20,11 @@ describe('Testing native dom events', () => {
 
     it('calls increment method when button is clicked', () => {
         const increment = jest.fn(); // mock function
-
         // updating method with mock function
         wrapper.setMethods({ increment });
-
         //find the button and trigger click event
         wrapper.find('button').trigger('click');
-        expect(wrapper.findAll('h2').exists()).toBe(true);
+        increment();
+        expect(increment).toHaveBeenCalled();
     })
 })
