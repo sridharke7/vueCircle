@@ -3,6 +3,11 @@
     <h1>{{msg}}</h1>
     <button class="yes" @click="callYes">Yes</button>
     <button class="no" @click="callNo">No</button>
+
+    <br><br>
+    <h2>{{count}}</h2>
+    <button @click="increment">Increment</button>
+
   </div>
 </template>
 
@@ -17,6 +22,7 @@ export default {
   data: function () {
     return {
       msg: "Hello, I am gonna become bigger",
+      count:0
     };
   },
   methods: {
@@ -28,6 +34,9 @@ export default {
       this.msg = this.msg.toLowerCase();
       return this.msg;
     },
+    increment() {
+      this.count++;
+    },   
   },
 };
 </script>
